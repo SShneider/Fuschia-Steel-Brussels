@@ -1,0 +1,44 @@
+{
+    "name": "fsb",
+    "version": "0.0.1",
+    "private": true,
+    "description": "Image Repository",
+    "main": "index.js",
+    "scripts": {
+        "start": "webpack serve",
+        "test": "test",
+        "build": "webpack --mode development"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SShneider/Fuschia-Steel-Brussels.git"
+    },
+    "author": "Sergei Shneider",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/SShneider/Fuschia-Steel-Brussels/issues"
+    },
+    "homepage": "https://github.com/SShneider/Fuschia-Steel-Brussels#readme",
+    "devDependencies": {
+        "@babel/cli": "^7.12.10",
+        "@babel/core": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/preset-react": "^7.12.10",
+        "autoprefixer": "^10.1.0",
+        "babel-loader": "^8.2.2",
+        "css-loader": "^5.0.1",
+        "postcss-loader": "^4.1.0",
+        "react-hot-loader": "^4.13.0",
+        "sass-loader": "^10.1.0",
+        "style-loader": "^2.0.0",
+        "webpack": "^5.11.1",
+        "webpack-cli": "^4.3.0",
+        "webpack-dev-server": "^3.11.1"
+    },
+    "dependencies": {
+        "@webpack-cli/init": "^1.1.0",
+        "bootstrap": "^5.0.0-beta1",
+        "react": "^17.0.1",
+        "react-dom": "^17.0.1"
+    }
+}
