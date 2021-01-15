@@ -6,7 +6,7 @@
     "main": "index.js",
     "scripts": {
         "start": "webpack serve",
-        "test": "test",
+        "test": "mocha \"./src/**/*.spec.js\" --require @babel/polyfill --require @babel/register",
         "build": "webpack --mode development"
     },
     "repository": {
@@ -22,23 +22,35 @@
     "devDependencies": {
         "@babel/cli": "^7.12.10",
         "@babel/core": "^7.12.10",
+        "@babel/polyfill": "^7.12.1",
         "@babel/preset-env": "^7.12.11",
         "@babel/preset-react": "^7.12.10",
+        "@babel/register": "^7.12.10",
         "autoprefixer": "^10.1.0",
         "babel-loader": "^8.2.2",
+        "chai": "^4.2.0",
         "css-loader": "^5.0.1",
+        "history": "^4.10.1",
+        "mocha": "^8.2.1",
+        "morgan": "^1.10.0",
         "postcss-loader": "^4.1.0",
         "react-hot-loader": "^4.13.0",
+        "react-router": "^5.2.0",
         "sass-loader": "^10.1.0",
         "style-loader": "^2.0.0",
+        "supertest": "^6.1.1",
+        "supertest-session": "^4.1.0",
         "webpack": "^5.11.1",
         "webpack-cli": "^4.3.0",
-        "webpack-dev-server": "^3.11.1"
+        "webpack-dev-middleware": "^3.7.3",
+        "webpack-dev-server": "^3.11.1",
+        "webpack-hot-middleware": "^2.25.0"
     },
     "dependencies": {
         "@webpack-cli/init": "^1.1.0",
         "bootstrap": "^5.0.0-beta1",
         "react": "^17.0.1",
-        "react-dom": "^17.0.1"
+        "react-dom": "^17.0.1",
+        "react-router-dom": "^5.2.0"
     }
 }
