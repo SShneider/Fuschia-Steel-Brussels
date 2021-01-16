@@ -2,7 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = {
-  entry: "./src/indexMain.js",
+  entry: ['@babel/polyfill', "./src/indexMain.js"],
   mode: "development",
   module: {
     rules: [
