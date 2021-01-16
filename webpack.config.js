@@ -32,7 +32,7 @@ fallback:{
   "crypto":false,
   "crypto-browserify": false 
 } },
-  
+devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, "public/"),
     publicPath: "/public/",

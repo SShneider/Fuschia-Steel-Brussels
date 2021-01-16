@@ -1,12 +1,14 @@
 import React from 'react'
+import {Nav} from 'react-bootstrap'
 import { hot } from 'react-hot-loader'
+import {Link} from 'react-router-dom'
 
 
 const Navbar = props => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">GIUploader</a>
+          <Link to="/" className="navbar-brand" >GIUploader</Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
@@ -19,17 +21,17 @@ const Navbar = props => {
                 <a className="nav-link" href="#">Upload</a>
               </li>
             </ul>
-            <ul class="nav navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="#"><span class="fas fa-user"></span> Sign Up</a>
+            <ul className="nav navbar-nav ml-auto">
+              <li className="nav-item">
+                <Link to="/signup" className="nav-link"> Sign Up</Link>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#"><span class="fas fa-sign-in-alt"></span> Login</a>
-              </li>
+              <Link to="/login" className="nav-link"><li className="nav-item">
+                Login
+              </li></Link>
             </ul>
           </div>
         </div>
       </nav>
 )}
 
-export default hot(module)(Navbar)
+export default Navbar
