@@ -3,11 +3,8 @@ version: 0.2
 phases:
   install:
     commands:
-      - curl -sL https://deb.nodesource.com/setup_15.x | bash -
-      - apt install -y nodejs
   pre_build:
     commands:
-      - npm install
   build:
     commands:
       - npm run test
@@ -16,4 +13,4 @@ artifacts:
   files:
     - "**/*"
   discard-paths: no
-  base-directory: dist
+  base-directory: public
