@@ -1,10 +1,16 @@
 
 const {expect} = require('chai')
-const app = require('./usersApi.js')
-const request = require('supertest')
+const chai = require('chai')
+const app = require('../../indexServer.js')
+const chaiHttp = require('chai-http');
+const { doesNotMatch } = require('assert');
+chai.use(chaiHttp)
 
 describe('Entry test', ()=>{
-    it('Works', async ()=>{
-        await request(app).get('/api/users').expect(200)
+    it('Works', (done) => {     
+        chai.request(app).get('/').then((res)=>{
+                    expect(res).to.have.status(200);
+                    done();
+                })
+        })    
     })
-})
