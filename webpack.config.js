@@ -16,19 +16,35 @@ module.exports = {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
       },
+      {
+        test: /\.m?js/,
+        resolve: {
+            fullySpecified: false
+        }
+    }
          ]
   },
-  resolve: { extensions: ["*", ".js", ".jsx"] },
+  watchOptions: {
+    ignored: /node_modules/
+  },
+  resolve: { extensions: [".mjs", "*", ".js", ".jsx"],
+fallback:{
+  "crypto":false,
+  "crypto-browserify": false 
+} },
+  
   output: {
-    path: path.resolve(__dirname, "dist/"),
-    publicPath: "/dist/",
+    path: path.resolve(__dirname, "public/"),
+    publicPath: "/public/",
     filename: "bundle.js"
   },
   devServer: {
-    contentBase: path.join(__dirname, "public/"),
+    contentBase: path.join(__dirname, "dist/"),
     port: 3000,
     publicPath: "http://localhost:3000/dist/",
-    hotOnly: true
+    hotOnly: true,
+    watchContentBase: true,
+    compress: true
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]
 };

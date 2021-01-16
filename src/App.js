@@ -4,12 +4,14 @@ import {Navbar} from './client/components/indexComponents'
 import Routes from './client/routes.js'
 import {Router} from 'react-router-dom'
 import history from './history'
+import {AmplifyAuthenticator, AmplifySignOut} from "@aws-amplify/ui-react";
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends Component{
   render(){
     return(
+      
         <div>
             <Router  history={history}>
                 <Navbar />
