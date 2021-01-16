@@ -6,7 +6,7 @@
     "main": "./src/server/indexServer.js",
     "scripts": {
         "start": "webpack serve",
-        "test": "mocha \"./src/**/*.spec.js\" --require @babel/polyfill --require @babel/register",
+        "test": "mocha \"./src/**/*.spec.js\" --require @babel/polyfill --require @babel/register --exit",
         "build": "webpack --mode development"
     },
     "repository": {
