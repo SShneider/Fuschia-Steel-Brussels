@@ -14,21 +14,34 @@ class SignUp extends Component {
             signUp: this.props && this.props.location.pathname,
         }
     }
-    handleSubmit = async (event) =>{
+    handleSubmit = async (event, signUp) =>{
       event.preventDefault();
+      
       const { username, email, password } = this.state;
-      try {
-        const signUpResponse = await Auth.signUp({
-          username,
-          password,
-          attributes: {
-            email: email
+      if(signUp){
+        try {
+            const signUpResponse = await Auth.signUp({
+            username,
+            password,
+            attributes: {
+                email: email
+            }
+            })
+            this.props.history.push("/")
+        }catch(err){
+            console.error(err)
+            }
+      }else{
+          try {
+            const userObject = await Auth.signIn(this.state.username, this.state.password)
+            if(userObject && userObject.username===this.state.username){
+                this.props.authProps.setUser(userObject.username)
+            }
+            this.props.history.push("/")
+          } catch (error) {
+              console.error(error)
           }
-        })
-        console.log(signUpResponse)
-      }catch(err){
-          console.error(err)
-        }
+      }
     }
     handleChange = (e) =>{
       this.setState({[e.target.id]:e.target.value})
@@ -42,7 +55,7 @@ class SignUp extends Component {
             <section className="section auth">
                 <div className="container d-flex justify-content-center mt-5">
                 
-                    <Form onSubmit = {this.handleSubmit} className="mr-auto ml-auto mt-3 p-3">
+                    <Form onSubmit ={()=>this.handleSubmit(event, signUp)} className="mr-auto ml-auto mt-3 p-3">
                     <h1>{signUp ? ("Sign Up"):("Login")}</h1>
                         <Form.Group className = "mt-3" controlId="username">
                             <Form.Label>Username</Form.Label>
@@ -50,14 +63,14 @@ class SignUp extends Component {
                             value={this.state.username}
                             onChange={this.handleChange}/>
                         </Form.Group>
-                        <Form.Group controlId="email">
+                        {signUp ?(<Form.Group controlId="email">
                             <Form.Label>Email address</Form.Label>
                             <Form.Control type="email" placeholder="Enter your email"  value={this.state.email}
                             onChange={this.handleChange}/>
-                             {signUp ? (<Form.Text className="text-dark">
+                             <Form.Text className="text-dark">
                                 We'll never share your email with anyone else.
-                             </Form.Text>):(<div></div>)}
-                        </Form.Group>
+                             </Form.Text>
+                        </Form.Group>):(<div></div>)}
                         <Form.Group controlId="password">
                             <Form.Label>Password</Form.Label>
                             <Form.Control type="password" placeholder="Password"  value={this.state.password}
