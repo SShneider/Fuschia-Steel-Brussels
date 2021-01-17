@@ -64,6 +64,7 @@
         "@popperjs/core": "^2.6.0",
         "@webpack-cli/init": "^1.1.0",
         "aws-amplify": "^3.3.14",
+        "aws-sdk": "^2.828.0",
         "bootstrap": "^5.0.0-beta1",
         "crypto-browserify": "^3.12.0",
         "graphql": "^14.0.0",

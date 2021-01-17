@@ -5,13 +5,13 @@ import Routes from './client/routes.js'
 import {Router} from 'react-router-dom'
 import history from './history'
 import {Auth} from 'aws-amplify'
-import {AmplifyAuthenticator, AmplifySignOut} from "@aws-amplify/ui-react";
 
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 class App extends Component{
   state = {
-    user: null
+    user: null,
+    isAuthenticating: true
   }
 
   setUser = (user) =>{
@@ -22,7 +22,10 @@ class App extends Component{
     try {
       const awsSess = await Auth.currentSession();
       const awsUser = await Auth.currentAuthenticatedUser();
-      if(awsUser) this.setUser(awsUser)
+      if(awsUser){
+        this.setUser(awsUser)
+        this.setState({isAuthenticating: false})
+      }
     } catch (error) {
       console.error(error)
     }
@@ -32,7 +35,8 @@ class App extends Component{
       user: this.state.user,
       setUser: this.setUser
     }
-    return(  
+    return(
+      !this.state.Authenticating &&  
         <div>
             <Router  history={history}>
                 <Navbar authProps = {authProps}/>

@@ -27,11 +27,11 @@ const Navbar = props => {
           {props.authProps.user ? (
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Image Search</a>
+              <Link to="/album" className="nav-link">Image Search</Link>
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" href="#">Upload</a>
+              <Link to="/album" className="nav-link">Upload</Link>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">My Images</a>

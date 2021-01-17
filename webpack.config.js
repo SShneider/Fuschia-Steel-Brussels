@@ -30,7 +30,8 @@ module.exports = {
   resolve: { extensions: [".mjs", "*", ".js", ".jsx"],
 fallback:{
   "crypto":false,
-  "crypto-browserify": false 
+  "crypto-browserify": false,
+  "util": false
 } },
 devtool: 'source-map',
   output: {
